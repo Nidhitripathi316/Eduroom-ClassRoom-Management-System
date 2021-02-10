@@ -1,0 +1,510 @@
+IMPLEMENTATION
+
+
+For Login 
+ 
+Login.jsp
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <style>
+    body {
+        background-image: url('classroom.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: cover;
+        }
+        table {
+            border: 1px solid black;
+        }
+    </style>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>EDUROOM</title>
+    </head>
+    <body>
+    <center> <h1 style="color:black;">Welcome to EDUROOM</h1> </center>
+    <center> <h2 style="color:black;">Gives you fast access to classrooms.</h2> </center>
+       <form action=" loginRegister " method="post">
+            <table style="background-color: white; margin-left:520px;margin-top:100px; width:25% ">
+                <tr>
+                    <td>
+                        <h3 style="color: red;"> ${message}</h3>
+                        <h3 style="color:green;">${successMessage}</h3>
+                    </td>
+                </tr>
+                <tr>
+                   <td><h3 style="color:darkblue;">EDUROOM Login!</h3></td>
+                </tr>
+                <tr><td>Faculty ID:</td><td style="text-align:right"><input type = "text" id="name" name="username"</td></tr>
+                <tr><td>Password:</td><td style="text-align:right"><input type = "password" id="password" name="password1" minlength="8"</td></tr>
+                <tr><td><input type="submit" name="submit" value="Login"</td><td style="text-align:right"><a href= "register.jsp">Registration</a></td></tr>
+            </table>
+        </form> 
+    </body>
+</html>
+
+For Registration
+
+Register.jsp
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <style>
+    body {
+        background-image: url('classroom.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: cover;
+        }
+        table {
+            border: 1px solid black;
+        }
+    </style>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>EDUROOM</title>
+    </head>
+    <body>
+        <center> <h1 style="color:black;">Create an account</h1> </center>
+        <center> <h3 style="color:black;">It's quick and easy.</h3> </center>
+        <form action=" LoginRegister ">
+            <table style="background-color: white; margin-left:520px; margin-top:100px; width:25%">
+                <tr>
+                    <td><h3 style="color:darkblue;">Registration Page!</h3></td>
+                </tr>
+                <tr><td>Faculty ID:</td><td><input type = "text" name="username"</td></tr>
+                <tr><td>Name:</td><td><input type = "text" name="name1"</td></tr>
+                <tr><td>Department:</td><td><input type = "text" name="name2"</td></tr>
+                <tr><td>Branch:</td><td><input type = "text" name="name3"</td></tr>
+                <tr><td>Subject:</td><td><input type = "text" name="name4"</td></tr>
+                <tr><td>Password:</td><td><input type = "password" name="password1"</td></tr>
+                <tr><td>Re-Type Password:</td><td><input type = "password" name="password2"</td></tr>
+                <tr><td><input type="submit" name="submit" value="Register"</td></tr>
+            </table>
+        </form>
+    </body>
+</html>
+
+For Dashboard
+
+First.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Dashboard</title>
+<style>
+    body {
+        background-image: url('classroom.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: cover;
+        }
+    </style>
+
+</head>
+
+<body>
+<h1 style="color:blue;">EDUROOM</h1>
+<hr/>
+<center><h2 style="color: black;">Choose your preferred option</h2></center>
+<form action= MyServlet>
+
+    <center><input type="button" value="Request For ClassRoom" name="Request For Classroom" onclick="openPage('second.jsp')" /> 
+        <input type="button" value="Advance ClassRoom Booking" name="Request For Classroom"onclick="openPage('second.jsp')" /></center>
+         
+</form>
+<script type="text/javascript">
+ function openPage(pageURL)
+ {
+ window.location.href = pageURL;
+ }
+</script>
+</body>
+</html>
+
+For Request For Classroom
+
+Second.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+body {background-color: powderblue;}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+</head>
+<body>
+<h4>Day of Week</h4>
+<p>Do Select your requirement from the dropdown menu.</p>
+
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#home">Monday</a>
+    <a href="#about">Tuesday</a>
+    <a href="#contact">Wednesday</a>
+    <a href="#contact">Thursday</a>
+    <a href="#contact">Friday</a>
+    <a href="#contact">Saturday</a>
+    <a href="#contact">Sunday</a>
+   
+  </div>
+</div>
+<h4>Timing</h4>
+<p>Do Select your requirement from the dropdown menu.</p>
+
+<div class="dropdown">
+  <button onclick="myFunction1()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown1" class="dropdown-content">
+    <a href="#home">9:00 hr</a>
+    <a href="#about">10:00 hr</a>
+    <a href="#contact">11:00 hr</a>
+    <a href="#contact">12:00 hr</a>
+    <a href="#contact">2:00 hr</a>
+    <a href="#contact">3:00 hr</a>
+    <a href="#contact">4:00 hr</a>
+   
+  </div>
+</div>
+
+<h4>Seating Capacity</h4>
+<p>Do Select your requirement from the dropdown menu.</p>
+
+<div class="dropdown">
+  <button onclick="myFunction2()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown2" class="dropdown-content">
+    <a href="#home">30 students</a>
+    <a href="#about">40 students</a>
+    <a href="#contact">50 students</a>
+    <a href="#contact">60 students</a>
+    <a href="#contact">80 students</a>
+    <a href="#contact">100 students</a>
+    <a href="#contact">120 students</a>
+   
+  </div>
+</div>
+<form action= MyServlet>
+<input type= "Submit" value="Send">
+</form>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+ function myFunction1() {
+  document.getElementById("myDropdown1").classList.toggle("show");
+}
+ function myFunction2() {
+ document.getElementById("myDropdown2").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
+
+Class File
+
+Faculity.java
+
+package login.submit.registration;
+
+
+public class Faculty {
+        private String FacultyID;
+        private String Name;
+        private String Department;
+        private String Branch;
+        private String Subject;
+        private String Password;
+           public String getFacultyID(){
+               return FacultyID;
+           }
+           public void setFacultyID(String FacultyID){
+               this.FacultyID= FacultyID;
+           }
+           public String getName() {
+               return Name;
+           };
+           public void setName(String Name) {
+               this.Name = Name;
+              
+           }
+           public String getDepartment() {
+               return Name;
+           };
+           public void setDepartment(String Department) {
+               this.Department = Department;
+              
+           }
+           public String getBranch() {
+               return Name;
+           };
+           public void setBranch(String Branch) {
+               this.Branch = Branch;
+              
+           }
+           public String getSubject() {
+               return Name;
+           };
+           public void setSubject(String Subject) {
+               this.Subject = Subject;
+              
+           }
+           public String getPassword() {
+               return Name;
+           };
+           public void setPassword(String Password) {
+               this.Password = Password;
+              
+           }   
+ }
+
+Database Operating File
+
+FaculityDAO.java
+
+package login.submit.registration;
+
+
+public interface FacultyDAO {
+    public int InsertFaculty(Faculty f);
+    public Faculty getFaculty(String FacultyID, String Name, String Department, String Branch, String Subject, String Password);
+}
+
+Database Implementation File
+
+FacultyDAOImpl.java
+
+package login.submit.registration;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class FacultyDAOImpl implements FacultyDAO {
+
+    static Connection con;
+    static PreparedStatement ps;
+    @Override
+    public int InsertFaculty(Faculty f) {
+        int status=0;
+        try{
+            con=MyConnectionProvider.getCon();
+            ps=con.prepareStatement(" insert into faculty values(?,?,?,?,?)");
+            ps.setString(1,(f.getFacultyID()));
+            ps.setString(2, f.getName());
+            ps.setString(3, f.getDepartment());
+            ps.setString(4, f.getBranch());
+            ps.setString(5, f.getSubject());
+            ps.setString(6, f.getPassword());
+            status= ps.executeUpdate();
+            con.close();
+            
+        }catch(Exception e){
+            System.out.println(e);
+        }
+            return status;
+    }
+
+
+    @Override
+    public Faculty getFaculty(String FacultyID, String Name, String Department, String Branch, String Subject, String Password) {
+       Faculty f= new Faculty();
+        try{
+           con=MyConnectionProvider.getCon();
+           ps= con.prepareStatement("Select * from customer where FacultyID=? and Password=?");
+           ps.setString(1,FacultyID);
+           ps.setString(6,Password);
+           
+           ResultSet rs=ps.executeQuery();
+           while(rs.next()){
+               f.setFacultyID(rs.getString(1));
+               f.setName(rs.getString(2));
+               f.setDepartment(rs.getString(3));
+               f.setBranch(rs.getString(4));
+               f.setSubject(rs.getString(5));
+               f.setPassword(rs.getString(6));
+           }
+       }catch(Exception e){
+           System.out.println(e);
+       }
+       return null; //To change body of generated methods, choose Tools | Templates.
+    }
+    
+}
+
+Login And Registration Implementation File
+
+LoginRegister.java
+
+package login.submit.registration;
+
+import java.io.IOException;
+import java.util.jar.Attributes.Name;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/LoginRegister")
+public class LoginRegister extends HttpServlet {
+          private static final long serialVersionUID = 1L;
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+       public LoginRegister() {
+              
+          }
+
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        FacultyDAO fd=new FacultyDAOImpl(); 
+        String FacultyID= request.getParameter("username");
+         String Password= request.getParameter("password1");
+         String Name= request.getParameter("name1");
+         String Department=request.getParameter("name2");
+         String Branch=request.getParameter("name3");
+         String Subject=request.getParameter("name4");
+         String submitType= request.getParameter("submit");
+         Faculty f=fd.getFaculty(FacultyID, Name,Department,Branch, Subject, Password);
+         if(submitType.equals("Login")&& f!=null && f.getName()!=null){
+             request.setAttribute("message", f.getName());
+             request.getRequestDispatcher("welcome.jsp").forward(request, response);
+        }else if(submitType.equals("Register")){
+            f.setName(request.getParameter("name1"));
+            f.setDepartment(request.getParameter("name2"));
+            f.setBranch(request.getParameter("name3"));
+            f.setSubject(request.getParameter("name4"));
+            f.setPassword(Password);
+            f.setFacultyID(FacultyID);
+            fd.InsertFaculty(f);
+            request.setAttribute("successMessage", "Registration Done, please login to continue!");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }else{
+            request.setAttribute("message", "Data not found, click on Register!");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+    }
+
+}
+
+
+Connection Establishment File
+
+MyConnectionProvider.java
+
+package login.submit.registration;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class MyConnectionProvider implements MyProvider {
+    static Connection con= null;
+    public static Connection getCon(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            con= DriverManager.getConnection(connUrl, username, pwd);
+        }catch(Exception e){
+        System.out.println(e);
+    }
+        return con;
+    }
+}
+
+
+
+
+
+
+
+
+SQL Connection Keys Provider Class
+
+MyProvider.java
+
+package login.submit.registration;
+
+public interface MyProvider {
+    String username="root";
+    String pwd="admin@123";
+    String connUrl= "jdbc:mysql://localhost:3306/facultydatabse";
+    
+}
+
+
